@@ -406,12 +406,22 @@ class GUI:
         os.makedirs(self.opt.outdir, exist_ok=True)
         if mode == 'geo':
             path = os.path.join(self.opt.outdir, self.opt.save_path + '_mesh.ply')
-            mesh = self.renderer.gaussians.extract_mesh(path, self.opt.density_thresh)
+            mesh = self.renderer.gaussians.extract_mesh(
+                path,
+                self.opt.density_thresh,
+                self.opt.mc_res,
+                self.opt.decimate_target
+            )
             mesh.write_ply(path)
 
         elif mode == 'geo+tex':
             path = os.path.join(self.opt.outdir, self.opt.save_path + '_mesh.' + self.opt.mesh_format)
-            mesh = self.renderer.gaussians.extract_mesh(path, self.opt.density_thresh)
+            mesh = self.renderer.gaussians.extract_mesh(
+                path,
+                self.opt.density_thresh,
+                self.opt.mc_res,
+                self.opt.decimate_target
+            )
 
             # perform texture extraction
             print(f"[INFO] unwrap uv...")

@@ -293,7 +293,7 @@ class GaussianModel:
 
         return occ
     
-    def extract_mesh(self, path, density_thresh=1, resolution=128, decimate_target=1e5):
+    def extract_mesh(self, path, density_thresh=1, resolution=256, decimate_target=5e4):
 
         os.makedirs(os.path.dirname(path), exist_ok=True)
 

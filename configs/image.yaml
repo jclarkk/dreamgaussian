@@ -13,6 +13,9 @@ ref_size: 256
 # density thresh for mesh extraction
 density_thresh: 1
 
+mc_res: 256
+decimate_target: 50000
+
 ### Output
 outdir: logs
 mesh_format: obj
